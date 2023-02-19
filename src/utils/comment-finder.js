@@ -14,8 +14,8 @@ const findComment = (comments, targetId) => {
   return result;
 };
 
-const checkReplies = (comment, targetId) => {
-  return comment.replies && find(comment.replies, targetId);
+const checkReplies = (comment, id) => {
+  return comment.replies.length > 0 && findComment(comment.replies, id);
 };
 
 export default findComment;
