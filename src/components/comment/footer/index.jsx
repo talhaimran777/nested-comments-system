@@ -16,7 +16,12 @@ const CommentFooter = ({ comment }) => {
     let foundComment = findComment(comments, comment.id);
 
     if (foundComment) {
-      foundComment.replies?.unshift({ id: uuid(), body: reply, replies: [] });
+      foundComment.replies?.unshift({
+        id: uuid(),
+        commentBy: "Unknown",
+        body: reply,
+        replies: [],
+      });
       setComments(comments);
       setShow(false);
       setReply("");
@@ -27,7 +32,7 @@ const CommentFooter = ({ comment }) => {
     <div>
       {!show && (
         <button
-          class="rounded-full bg-blue-400 text-xs text-white px-3 py-1 mb-1"
+          class="rounded-full bg-blue-400 text-xs text-white px-3 py-1 mb-1 mt-2"
           onClick={() => {
             setShow(true);
             replyInput.current.focus();
