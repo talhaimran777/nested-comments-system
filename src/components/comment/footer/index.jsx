@@ -20,6 +20,7 @@ const CommentFooter = ({ comment }) => {
         id: uuid(),
         commentBy: "Unknown",
         body: reply,
+        createdAt: "Just now",
         replies: [],
       });
       setComments(comments);
