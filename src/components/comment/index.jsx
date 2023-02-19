@@ -1,34 +1,8 @@
+import CommentBody from "./body";
+import CommentFooter from "./footer";
+import CommentHeader from "./header";
+
 const Comment = ({ comment }) => {
-  const CommentHeader = () => {
-    return (
-      <div className="flex items-baseline mb-2">
-        <p className="text-sm">{comment.commentBy}</p>
-        <p className="text-gray-400 text-xs ml-2">{comment.createdAt}</p>
-      </div>
-    );
-  };
-
-  const CommentBody = () => {
-    return (
-      <>
-        <p className="text-justify text-xs text-gray-500">{comment.body}</p>
-      </>
-    );
-  };
-
-  const CommentFooter = () => {
-    return (
-      <div>
-        <button class="rounded-full bg-blue-400 text-xs text-white px-3 py-1">
-          Reply
-        </button>
-        {comment.replies.map((reply) => (
-          <Comment comment={reply} key={reply.id} />
-        ))}
-      </div>
-    );
-  };
-
   return (
     <div className="flex justify-start mt-3">
       <div className="flex flex-col items-center mr-1">
@@ -49,9 +23,9 @@ const Comment = ({ comment }) => {
         <div className="w-1 rounded-full bg-gray-200 flex-1"> &nbsp; </div>
       </div>
       <div>
-        <CommentHeader />
-        <CommentBody />
-        <CommentFooter />
+        <CommentHeader comment={comment} />
+        <CommentBody comment={comment} />
+        <CommentFooter comment={comment} />
       </div>
     </div>
   );
