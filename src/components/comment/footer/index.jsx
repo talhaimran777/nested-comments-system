@@ -33,7 +33,7 @@ const CommentFooter = ({ comment }) => {
     <div>
       {!show && (
         <button
-          class="rounded-full bg-blue-400 text-xs text-white px-3 py-1 mb-1 mt-2"
+          class="rounded-full bg-blue-400 text-xs md:text-base text-white px-3 py-1 mb-1 mt-2"
           onClick={() => {
             setShow(true);
             replyInput.current.focus();
@@ -49,19 +49,19 @@ const CommentFooter = ({ comment }) => {
             autoFocus
             onKeyDown={(e) => e.key === "Enter" && addComment()}
             onChange={(e) => e.key !== "Enter" && setReply(e.target.value)}
-            className="outline-none bg-gray-200 border border-1 border-gray-500 w-full rounded-sm text-xs p-1 text-gray-400"
+            className="outline-none bg-gray-200 border border-1 border-gray-500 w-full rounded-sm text-xs md:text-sm p-1 text-gray-400"
             name="comment"
             type="text"
           />
           <button
-            className="border-2 ml-2 text-xs bg-green-500 text-white p-1 focus"
+            className="border-2 ml-2 text-xs md:text-sm bg-green-500 text-white p-1 focus"
             onClick={addComment}
           >
             Add
           </button>
 
           <button
-            className="border-2 ml-2 text-xs bg-red-400 text-white p-1"
+            className="border-2 ml-2 text-xs md:text-sm bg-red-400 text-white p-1"
             onClick={() => setShow(false)}
           >
             Close
